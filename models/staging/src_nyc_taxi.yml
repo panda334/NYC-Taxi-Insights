@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: staging
+    database: bigquery-public-data
+    schema: new_york_taxi_trips
+    tables:
+      - name: tlc_yellow_trips_2019
+      - name: tlc_yellow_trips_2020
+      - name: tlc_yellow_trips_2021
+      - name: tlc_yellow_trips_2022
+      - name: tlc_yellow_trips_2023
+      - name: tlc_green_trips_2019
+      - name: tlc_green_trips_2020
+      - name: tlc_green_trips_2021
+      - name: tlc_green_trips_2022
+      - name: tlc_green_trips_2023
+      - name: taxi_zone_geom

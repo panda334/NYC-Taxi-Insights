@@ -1,5 +1,3 @@
-{{ config (materialized='view') }}
-
 with trips as (
     select * from {{ ref('int_trips') }}
 ),

@@ -1,17 +1,49 @@
 version: 2
 
 models:
-  - name: fact_trips  
-    description: "A model to store facts about the NYC taxi"
+  - name: fact_trips
+    description: "One row per deduplicated, valid NYC taxi trip."
     columns:
-      - name: tripid  
-        description: "the unique identifier for each trip"
+      - name: tripid
+        description: "Stable surrogate key for a trip."
         tests:
           - unique
           - not_null
-
       - name: service_type
-        description: "the type of service for the trip (e.g., Yellow, Green)"    
+        description: "The taxi service type."
         tests:
           - accepted_values:
-              values: ['Yellow', 'Green'] 
+              arguments:
+                values: ['Yellow', 'Green']
+      - name: pickup_datetime
+        description: "Trip pickup timestamp."
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        description: "Trip dropoff timestamp."
+        tests:
+          - not_null
+      - name: pickup_location_id
+        description: "TLC pickup taxi-zone identifier."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_locations')
+                field: location_id
+      - name: dropoff_location_id
+        description: "TLC dropoff taxi-zone identifier."
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_locations')
+                field: location_id
+      - name: total_amount
+        description: "Total trip charge including fees and tip."
+        tests:
+          - not_null
+      - name: trip_distance
+        description: "Trip distance in miles."
+        tests:
+          - not_null

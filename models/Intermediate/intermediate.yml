@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_trips
+    description: "Combined Yellow and Green trips with deduplication, surrogate keys, and derived duration."
+    columns:
+      - name: tripid
+        description: "Stable surrogate key generated from trip business keys."
+        tests:
+          - unique
+          - not_null
+      - name: service_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Yellow', 'Green']
+      - name: trip_duration_minutes
+        description: "Elapsed trip duration in minutes."

@@ -4,15 +4,27 @@ sources:
   - name: staging
     database: bigquery-public-data
     schema: new_york_taxi_trips
+    description: "NYC TLC trip and taxi-zone data published by BigQuery."
     tables:
       - name: tlc_yellow_trips_2019
+        description: "Yellow taxi trips recorded in 2019."
       - name: tlc_yellow_trips_2020
+        description: "Yellow taxi trips recorded in 2020."
       - name: tlc_yellow_trips_2021
+        description: "Yellow taxi trips recorded in 2021."
       - name: tlc_yellow_trips_2022
+        description: "Yellow taxi trips recorded in 2022."
       - name: tlc_yellow_trips_2023
+        description: "Yellow taxi trips recorded in 2023."
       - name: tlc_green_trips_2019
+        description: "Green taxi trips recorded in 2019."
       - name: tlc_green_trips_2020
+        description: "Green taxi trips recorded in 2020."
       - name: tlc_green_trips_2021
+        description: "Green taxi trips recorded in 2021."
       - name: tlc_green_trips_2022
+        description: "Green taxi trips recorded in 2022."
       - name: tlc_green_trips_2023
+        description: "Green taxi trips recorded in 2023."
       - name: taxi_zone_geom
+        description: "Taxi-zone reference geometry and names."

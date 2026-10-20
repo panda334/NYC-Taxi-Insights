@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_yellow_trips
+    description: "Unioned and lightly normalized Yellow taxi trips from 2020-2023."
+    columns:
+      - name: vendor_id
+        description: "TLC technology provider identifier."
+        tests:
+          - not_null
+      - name: pickup_datetime
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        tests:
+          - not_null
+      - name: total_amount
+        tests:
+          - not_null
+  - name: stg_green_trips
+    description: "Unioned and lightly normalized Green taxi trips from 2019-2023."
+    columns:
+      - name: vendor_id
+        description: "TLC technology provider identifier."
+        tests:
+          - not_null
+      - name: pickup_datetime
+        tests:
+          - not_null
+      - name: dropoff_datetime
+        tests:
+          - not_null
+      - name: total_amount
+        tests:
+          - not_null
+  - name: stg_locations_trips
+    description: "Clean taxi-zone lookup used by trip dimensions and facts."
+    columns:
+      - name: location_id
+        description: "TLC taxi-zone identifier."
+        tests:
+          - unique
+          - not_null
+      - name: location_name
+        tests:
+          - not_null
+      - name: borough
+        tests:
+          - not_null
